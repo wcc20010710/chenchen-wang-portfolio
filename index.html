@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1a1f">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Chenchen Wang — independent creative technologist designing spatial interfaces, real-time systems and quietly intelligent experiences for cities and homes.">
+  <meta property="og:title" content="Chenchen Wang — Creative Technologist">
+  <meta property="og:description" content="Smart living in a digital world. Spatial interfaces, real-time systems and experiences for the next generation of cities and homes.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Chenchen Wang — Creative Technologist">
+  <meta name="twitter:description" content="Smart living in a digital world. Spatial interfaces, real-time systems and experiences for cities and homes.">
+  <meta name="twitter:image" content="assets/og-cover.jpg">
+  <title>Chenchen Wang — Creative Technologist</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="modulepreload" href="assets/vendor/three.module.js">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="world.js"></script>
+  <script defer src="main.js"></script>
+</head>
+<body class="is-loading">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- icon system -->
+  <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path d="M5 19 19 5M8 5h11v11"/></symbol>
+    <symbol id="i-arrow-r" viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrow-d" viewBox="0 0 24 24"><path d="M12 4v16M6 14l6 6 6-6"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 20V4M6 10l6-6 6 6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="1.5"/><path d="m4 7 8 6 8-6"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><path d="M17.3 6.8h.01"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M6.4 9.6V18M6.4 6.1v.01M10.8 18v-4.9c0-2.1 1.2-3.3 2.9-3.3 1.7 0 2.7 1.1 2.7 3.3V18M10.8 9.7V18"/></symbol>
+    <symbol id="i-arena" viewBox="0 0 24 24"><path d="M10 14.5 14.5 10M8.5 16.5l-1 1a3.5 3.5 0 0 1-5-5l3-3a3.5 3.5 0 0 1 5 0M15.5 7.5l1-1a3.5 3.5 0 0 1 5 5l-3 3a3.5 3.5 0 0 1-5 0"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><rect x="14" y="14" width="6" height="6"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="1.5"/><path d="M16 8V4H4v12h4"/></symbol>
+    <symbol id="i-sound" viewBox="0 0 24 24"><path d="M5 14v-4M9.5 17V7M14 15.5v-7M18.5 13V11"/></symbol>
+  </svg>
+
+  <!-- boot sequence -->
+  <div class="boot" id="boot" aria-hidden="true">
+    <div class="boot__top">
+      <span>CW / PORTFOLIO 2026</span>
+      <span>SPATIAL INTERFACE SYSTEM</span>
+      <span>BOOT SEQ. 07</span>
+    </div>
+    <div class="boot__center">
+      <div class="boot__emblem">
+        <span class="boot__orbit"></span>
+        <span class="boot__orbit boot__orbit--2"></span>
+        <span class="boot__core"></span>
+      </div>
+      <p class="boot__name">CHENCHEN WANG</p>
+      <p class="boot__sub">INITIALISING HUMAN INTERFACE</p>
+    </div>
+    <div class="boot__bottom">
+      <div class="boot__track"><i id="boot-bar"></i></div>
+      <div class="boot__data"><span id="boot-percent">000</span><span>CONNECTING TO NEXUS</span><span>SHANGHAI / CN</span></div>
+    </div>
+  </div>
+
+  <div class="scroll-progress" aria-hidden="true"><i id="scroll-progress-bar"></i></div>
+  <div class="page-grain" aria-hidden="true"></div>
+  <div class="page-scanlines" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"><span class="cursor__label">VIEW</span></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+
+  <header class="site-header" id="site-header">
+    <a class="brand" href="#home" aria-label="Chenchen Wang — back to top">
+      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="10.5" fill="none" stroke="currentColor" stroke-width=".7" opacity=".55"/>
+        <ellipse cx="16" cy="16" rx="14" ry="4.8" transform="rotate(-38 16 16)" fill="none" stroke="currentColor" stroke-width=".7" opacity=".4"/>
+        <path d="M16 1.5v4M16 26.5v4M1.5 16h4M26.5 16h4" fill="none" stroke="currentColor" stroke-width=".7" opacity=".5"/>
+        <circle cx="16" cy="16" r="2.2" fill="var(--orange)"/>
+      </svg>
+      <span class="brand__text">
+        <span class="brand__name">CHENCHEN WANG</span>
+        <span class="brand__sub">STUDIO / SHANGHAI</span>
+      </span>
+    </a>
+
+    <nav class="main-nav" aria-label="Primary navigation">
+      <a href="#about" data-nav="about"><span class="nav-index">01</span><span>ABOUT</span></a>
+      <a href="#work" data-nav="work"><span class="nav-index">02</span><span>WORK</span></a>
+      <a href="#approach" data-nav="approach"><span class="nav-index">03</span><span>APPROACH</span></a>
+      <a href="#contact" data-nav="contact"><span class="nav-index">04</span><span>CONTACT</span></a>
+    </nav>
+
+    <div class="header-meta">
+      <div class="header-clock">
+        <span class="status-dot"></span>
+        <span>SHANGHAI</span>
+        <time id="header-time">00:00:00</time>
+      </div>
+      <a class="header-cta" href="#contact">
+        <span>START A PROJECT</span>
+        <span class="header-cta__icon"><svg class="icon"><use href="#i-arrow-ur"/></svg></span>
+      </a>
+    </div>
+
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-controls="mobile-menu" aria-expanded="false">
+      <span class="menu-toggle__label">MENU</span>
+      <span class="menu-toggle__lines" aria-hidden="true"><i></i><i></i></span>
+    </button>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu__inner">
+      <div class="mobile-menu__eyebrow"><span>INDEX / 2026</span><span>31.2304° N — 121.4737° E</span></div>
+      <nav class="mobile-menu__nav" aria-label="Mobile navigation">
+        <a href="#about"><span>01</span>ABOUT<svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+        <a href="#work"><span>02</span>WORK<svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+        <a href="#approach"><span>03</span>APPROACH<svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+        <a href="#contact"><span>04</span>CONTACT<svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+      </nav>
+      <div class="mobile-menu__footer">
+        <a href="mailto:hello@chenchenwang.studio">hello@chenchenwang.studio</a>
+        <div class="mobile-menu__socials">
+          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">INSTAGRAM</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LINKEDIN</a>
+          <a href="https://www.are.na/" target="_blank" rel="noreferrer">ARE.NA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="world-wrap" aria-hidden="true">
+        <canvas id="world"></canvas>
+        <div class="world-fallback">
+          <div class="world-fallback__device"><i></i><i></i><i></i><i></i><span>NEXUS<br>07</span></div>
+          <div class="world-fallback__haze"></div>
+        </div>
+        <div class="world-vignette"></div>
+        <div class="bokeh-field">
+          <i class="bokeh bokeh--1"></i>
+          <i class="bokeh bokeh--2"></i>
+          <i class="bokeh bokeh--3"></i>
+          <i class="bokeh bokeh--4"></i>
+          <i class="bokeh bokeh--5"></i>
+        </div>
+      </div>
+
+      <div class="hero__grid" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+
+      <aside class="status-rail" aria-label="System status">
+        <div class="status-rail__head"><span class="status-dot"></span><span>SYS.ONLINE</span></div>
+        <div class="status-stat">
+          <span class="status-stat__label">RES</span>
+          <span class="status-stat__value">2K</span>
+          <span class="status-stat__bar"><i style="--value: 100%"></i></span>
+        </div>
+        <div class="status-stat">
+          <span class="status-stat__label">SYNC</span>
+          <span class="status-stat__value">100<span>%</span></span>
+          <span class="status-stat__bar"><i style="--value: 100%"></i></span>
+        </div>
+        <div class="status-stat">
+          <span class="status-stat__label">CORE</span>
+          <span class="status-stat__value">80<span>%</span></span>
+          <span class="status-stat__bar"><i style="--value: 80%"></i></span>
+        </div>
+        <span class="status-rail__version">CW—26 / V.04</span>
+      </aside>
+
+      <aside class="social-rail" aria-label="Social links and sound">
+        <button class="icon-btn sound-toggle" id="sound-toggle" type="button" aria-label="Toggle ambient sound" aria-pressed="false" data-tooltip="SOUND OFF">
+          <svg class="icon icon--sound"><use href="#i-sound"/></svg>
+        </button>
+        <a class="icon-btn" href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram" data-tooltip="INSTAGRAM">
+          <svg class="icon"><use href="#i-instagram"/></svg>
+        </a>
+        <a class="icon-btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn" data-tooltip="LINKEDIN">
+          <svg class="icon"><use href="#i-linkedin"/></svg>
+        </a>
+        <a class="icon-btn" href="https://www.are.na/" target="_blank" rel="noreferrer" aria-label="Are.na" data-tooltip="ARE.NA">
+          <svg class="icon"><use href="#i-arena"/></svg>
+        </a>
+        <a class="icon-btn" href="mailto:hello@chenchenwang.studio" aria-label="Email Chenchen Wang" data-tooltip="EMAIL">
+          <svg class="icon"><use href="#i-mail"/></svg>
+        </a>
+        <span class="social-rail__line" aria-hidden="true"></span>
+      </aside>
+
+      <div class="hero__inner">
+        <div class="hero-copy">
+          <div class="hero-eyebrow" data-intro>
+            <span class="hero-eyebrow__tag"><i class="status-dot"></i>PORTFOLIO / 2026</span>
+            <span class="hero-eyebrow__rule"></span>
+            <span class="hero-eyebrow__text">INDEPENDENT CREATIVE TECHNOLOGIST</span>
+          </div>
+
+          <div class="hero-title-wrap">
+            <h1 class="hero-title" id="hero-title" aria-label="Chenchen Wang">
+              <span class="title-mask"><span class="title-line title-line--solid">CHENCHEN</span></span>
+              <span class="title-mask"><span class="title-line title-line--outline">WANG</span></span>
+            </h1>
+            <div class="title-aside" aria-hidden="true">
+              <span class="title-aside__cn" lang="zh-CN">王忱忱</span>
+              <span class="title-aside__reg">®</span>
+              <span class="title-aside__role">CREATIVE<br>TECHNOLOGIST</span>
+            </div>
+          </div>
+
+          <div class="hero-intro" data-intro>
+            <p class="hero-lede">I build <em>spatial interfaces</em>, real-time systems, and quietly intelligent experiences for the next generation of cities and homes.</p>
+            <div class="hero-specs">
+              <span>SPATIAL SYSTEMS</span>
+              <span>CREATIVE CODE</span>
+              <span class="hero-specs__available"><i></i>Q1 / 2026</span>
+            </div>
+          </div>
+
+          <div class="hero-actions" data-intro>
+            <a class="btn btn--primary magnetic" href="#work">
+              <span>EXPLORE SELECTED WORK</span>
+              <span class="btn__icon"><svg class="icon"><use href="#i-arrow-ur"/></svg></span>
+            </a>
+            <a class="btn btn--ghost magnetic" href="#contact">
+              <span>LET'S TALK</span>
+              <span class="btn__dot"></span>
+            </a>
+          </div>
+
+          <div class="mobile-metrics" aria-label="System status">
+            <span><i>RES</i><b>2K</b></span>
+            <span><i>SYNC</i><b>100%</b></span>
+            <span><i>CORE</i><b>80%</b></span>
+          </div>
+        </div>
+
+        <aside class="hero-hud" aria-label="Live city telemetry">
+          <div class="hud-card">
+            <span class="corner corner--tl"></span><span class="corner corner--tr"></span>
+            <span class="corner corner--bl"></span><span class="corner corner--br"></span>
+            <div class="hud-card__top">
+              <span><i class="hud-live"></i>LIVE ENVIRONMENT</span>
+              <span class="hud-code">NX—07</span>
+            </div>
+            <div class="hud-card__body">
+              <div class="hud-dial" aria-hidden="true">
+                <span class="hud-dial__ticks"></span>
+                <span class="hud-dial__ring"></span>
+                <span class="hud-dial__ring hud-dial__ring--inner"></span>
+                <span class="hud-dial__core"><b>80</b><small>%</small><em>CORE</em></span>
+              </div>
+              <div class="hud-readouts">
+                <div><span>ACTIVE NODES</span><b data-count="2184">2,184</b></div>
+                <div><span>SYNC QUALITY</span><b>100<span>%</span></b></div>
+                <div><span>RESPONSE</span><b>12<span>ms</span></b></div>
+              </div>
+            </div>
+            <div class="hud-wave">
+              <div class="hud-wave__label"><span>ENERGY DISTRIBUTION</span><em>+12.4%</em></div>
+              <svg viewBox="0 0 260 30" preserveAspectRatio="none" aria-hidden="true">
+                <defs><linearGradient id="waveGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#54dbe4" stop-opacity="0"/><stop offset=".45" stop-color="#54dbe4" stop-opacity=".9"/><stop offset="1" stop-color="#f4a15d" stop-opacity=".65"/></linearGradient></defs>
+                <path class="hud-wave__line" d="M0 21 12 21 20 12 29 24 40 18 54 18 64 8 74 23 86 15 96 21 110 19 122 6 132 25 142 16 154 20 168 20 179 11 189 24 204 14 217 21 231 17 244 9 260 19" fill="none" stroke="url(#waveGrad)" stroke-width="1.2"/>
+              </svg>
+            </div>
+          </div>
+          <div class="hud-mini">
+            <span class="hud-mini__coord">31.2304° N — 121.4737° E</span>
+            <span class="hud-mini__sector"><i></i>SECTOR 07</span>
+          </div>
+        </aside>
+      </div>
+
+      <div class="hero-foot">
+        <div class="hero-tagline">
+          <span class="hero-tagline__mark" aria-hidden="true"><i></i><i></i></span>
+          <span>Smart Living in a Digital World</span>
+        </div>
+        <a class="scroll-cue" href="#about">
+          <span>SCROLL TO EXPLORE</span>
+          <span class="scroll-cue__orbit"><svg class="icon"><use href="#i-arrow-d"/></svg></span>
+        </a>
+        <div class="hero-foot__meta">
+          <span>SHANGHAI / CN</span>
+          <span>EST. 2017</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>SPATIAL INTERFACES</span><i>✦</i><span>REAL-TIME SYSTEMS</span><i>✦</i><span>CREATIVE CODE</span><i>✦</i><span>SMART LIVING</span><i>✦</i><span>SHANGHAI / CN</span><i>✦</i>
+        <span>SPATIAL INTERFACES</span><i>✦</i><span>REAL-TIME SYSTEMS</span><i>✦</i><span>CREATIVE CODE</span><i>✦</i><span>SMART LIVING</span><i>✦</i><span>SHANGHAI / CN</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="section-orbit section-orbit--about" aria-hidden="true"><i></i><i></i><span></span></div>
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-head__index">01 — ABOUT</span>
+          <span class="section-head__rule"></span>
+          <span class="section-head__note">HUMAN FIRST / SYSTEMS SECOND</span>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-main">
+            <h2 class="display about-title reveal" id="about-title">
+              <span class="reveal-line"><span>I design the <em>invisible</em></span></span>
+              <span class="reveal-line"><span>systems that make</span></span>
+              <span class="reveal-line"><span>life feel <span class="text-outline">effortless.</span></span></span>
+            </h2>
+
+            <div class="about-copy reveal">
+              <p>I’m Chenchen Wang, a creative technologist working where design, code and the built environment meet. For eight years I’ve helped ambitious teams turn complex systems — cities, homes, energy, data — into experiences that feel natural to the people inside them.</p>
+              <p>My work moves from research and product strategy to interface design and the final line of production code. I believe the best technology is felt before it’s understood.</p>
+            </div>
+
+            <a class="text-link reveal" href="#approach">
+              <span>HOW I WORK</span>
+              <span class="text-link__line"></span>
+              <svg class="icon"><use href="#i-arrow-r"/></svg>
+            </a>
+          </div>
+
+          <div class="about-side reveal">
+            <figure class="portrait">
+              <div class="portrait__media">
+                <img src="assets/studio.jpg" alt="Hands arranging a glowing translucent architectural model in a dark studio." width="900" height="1200" loading="lazy">
+                <div class="portrait__gradient"></div>
+                <div class="portrait__scan" aria-hidden="true"></div>
+                <span class="corner corner--tl"></span><span class="corner corner--tr"></span>
+                <span class="corner corner--bl"></span><span class="corner corner--br"></span>
+                <span class="portrait__hud portrait__hud--tl">IN THE STUDIO / CW—01</span>
+                <span class="portrait__hud portrait__hud--br"><i></i>IN FOCUS</span>
+              </div>
+              <figcaption>
+                <span>王忱忱 / CHENCHEN WANG</span>
+                <span>SHANGHAI, CN — GMT+8</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="stats-grid reveal">
+          <div class="stat">
+            <span class="stat__index">A.</span>
+            <strong><span data-count="8">08</span><sup>+</sup></strong>
+            <p>Years shaping digital experiences</p>
+          </div>
+          <div class="stat">
+            <span class="stat__index">B.</span>
+            <strong><span data-count="26">26</span></strong>
+            <p>Products shipped across 9 countries</p>
+          </div>
+          <div class="stat">
+            <span class="stat__index">C.</span>
+            <strong><span data-count="12">12</span></strong>
+            <p>Industry awards &amp; honorees</p>
+          </div>
+          <div class="stat">
+            <span class="stat__index">D.</span>
+            <strong><span data-count="1">01</span></strong>
+            <p>Obsession: making tech feel human</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section class="section work" id="work" aria-labelledby="work-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-head__index">02 — SELECTED WORK</span>
+          <span class="section-head__rule"></span>
+          <span class="section-head__note">2023 → 2026 / SELECTED CASES</span>
+        </div>
+
+        <div class="work-intro">
+          <h2 class="display reveal" id="work-title">A few things<br>I’ve <em>made real.</em></h2>
+          <div class="work-intro__aside reveal">
+            <p>Selected collaborations across smart cities, ambient living and machine-native brands. Every project starts with a human question — never a technology looking for a problem.</p>
+            <span class="work-intro__note">[ 03 CASE STUDIES / 2023—25 ]</span>
+          </div>
+        </div>
+
+        <div class="project-list">
+          <article class="project reveal" data-project="nexus" tabindex="0" role="button" aria-haspopup="dialog" aria-label="View NEXUS case study">
+            <div class="project__media">
+              <img src="assets/work-nexus.jpg" alt="Aerial night view of a smart district with cyan data paths and a holographic interface above the city." width="1400" height="875" loading="lazy">
+              <div class="project__shade"></div>
+              <div class="project__ui">
+                <span class="project__ui-tag">NEXUS / LIVE DISTRICT</span>
+                <span class="project__ui-coord">31°14′08″N&nbsp;&nbsp;121°28′25″E</span>
+                <span class="project__ui-cross" aria-hidden="true"></span>
+                <span class="project__ui-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              </div>
+              <span class="project__cta"><span>VIEW<br>CASE</span><svg class="icon"><use href="#i-arrow-ur"/></svg></span>
+            </div>
+            <div class="project__detail">
+              <div class="project__meta"><span>01 / SMART CITY</span><span>2025</span></div>
+              <h3>NEXUS<span class="project__tm">™</span></h3>
+              <p class="project__desc">An operating system for the net-zero district — turning invisible flows of energy, air and movement into one calm, legible interface.</p>
+              <div class="project__bottom">
+                <div class="tags"><span>PRODUCT</span><span>SPATIAL UX</span><span>WEBGL</span></div>
+                <span class="project__arrow"><svg class="icon"><use href="#i-arrow-ur"/></svg></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project reveal" data-project="aura" tabindex="0" role="button" aria-haspopup="dialog" aria-label="View AURA case study">
+            <div class="project__media">
+              <img src="assets/work-aura.jpg" alt="Warm minimalist smart living room with a brass climate panel and a glowing holographic dial." width="1400" height="875" loading="lazy">
+              <div class="project__shade"></div>
+              <div class="project__ui">
+                <span class="project__ui-tag">AURA / RESIDENCE 04</span>
+                <span class="project__ui-coord">CLIMATE 21.4°C&nbsp;&nbsp;AQI 12</span>
+                <span class="project__ui-cross" aria-hidden="true"></span>
+                <span class="project__ui-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              </div>
+              <span class="project__cta"><span>VIEW<br>CASE</span><svg class="icon"><use href="#i-arrow-ur"/></svg></span>
+            </div>
+            <div class="project__detail">
+              <div class="project__meta"><span>02 / AMBIENT LIVING</span><span>2024</span></div>
+              <h3>AURA<span class="project__tm">®</span></h3>
+              <p class="project__desc">A home that reads the room. Light, air and sound composed as a single living material — controlled by presence, not apps.</p>
+              <div class="project__bottom">
+                <div class="tags"><span>IOT</span><span>SPATIAL UX</span><span>BRAND</span></div>
+                <span class="project__arrow"><svg class="icon"><use href="#i-arrow-ur"/></svg></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project reveal" data-project="kinetic" tabindex="0" role="button" aria-haspopup="dialog" aria-label="View KINETIC case study">
+            <div class="project__media">
+              <img src="assets/work-kinetic.jpg" alt="Dark industrial robotic arm with lime and amber lighting reaching toward a chrome sphere." width="1400" height="875" loading="lazy">
+              <div class="project__shade"></div>
+              <div class="project__ui">
+                <span class="project__ui-tag">KINETIC / MOTION SYSTEM</span>
+                <span class="project__ui-coord">SERVO 06&nbsp;&nbsp;TORQUE 84%</span>
+                <span class="project__ui-cross" aria-hidden="true"></span>
+                <span class="project__ui-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              </div>
+              <span class="project__cta"><span>VIEW<br>CASE</span><svg class="icon"><use href="#i-arrow-ur"/></svg></span>
+            </div>
+            <div class="project__detail">
+              <div class="project__meta"><span>03 / MACHINE-NATIVE IDENTITY</span><span>2023</span></div>
+              <h3>KINETIC<span class="project__tm">®</span></h3>
+              <p class="project__desc">An identity that moves like the machines it represents. A generative motion language for a new robotics studio.</p>
+              <div class="project__bottom">
+                <div class="tags"><span>IDENTITY</span><span>MOTION</span><span>DIGITAL</span></div>
+                <span class="project__arrow"><svg class="icon"><use href="#i-arrow-ur"/></svg></span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <a class="project-next reveal" href="#contact">
+          <div>
+            <span class="project-next__index">NEXT / 04</span>
+            <h3>Have something<br><em>strange</em> in mind?</h3>
+          </div>
+          <div class="project-next__right">
+            <span>THERE’S ROOM FOR ONE MORE<br>GOOD IDEA THIS YEAR.</span>
+            <span class="project-next__icon"><svg class="icon"><use href="#i-arrow-ur"/></svg></span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- APPROACH -->
+    <section class="section approach" id="approach" aria-labelledby="approach-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-head__index">03 — APPROACH</span>
+          <span class="section-head__rule"></span>
+          <span class="section-head__note">FROM FIRST PRINCIPLE TO FINAL PIXEL</span>
+        </div>
+
+        <div class="approach-grid">
+          <div class="approach-intro">
+            <h2 class="display reveal" id="approach-title">Strategy in the head.<br><em>Code</em> in the hands.</h2>
+            <p class="reveal">I work as an embedded partner, not a hand-off machine. That means asking better questions, making the thing, testing it with real people, and staying until it feels inevitable.</p>
+
+            <div class="radar-card reveal" aria-hidden="true">
+              <div class="radar-card__head"><span>SIGNAL MAP / CAPABILITIES</span><span>LIVE</span></div>
+              <div class="radar">
+                <span class="radar__ring radar__ring--1"></span>
+                <span class="radar__ring radar__ring--2"></span>
+                <span class="radar__ring radar__ring--3"></span>
+                <span class="radar__axis radar__axis--x"></span>
+                <span class="radar__axis radar__axis--y"></span>
+                <span class="radar__sweep"></span>
+                <span class="radar__blip radar__blip--1"></span>
+                <span class="radar__blip radar__blip--2"></span>
+                <span class="radar__blip radar__blip--3"></span>
+                <span class="radar__center"><i></i>LY</span>
+                <span class="radar__label radar__label--1">RESEARCH</span>
+                <span class="radar__label radar__label--2">SPATIAL</span>
+                <span class="radar__label radar__label--3">BUILD</span>
+              </div>
+              <div class="radar-card__foot"><span>N 31.23° / E 121.47°</span><span>SYNC 100%</span></div>
+            </div>
+          </div>
+
+          <div class="capabilities reveal">
+            <article class="capability is-open">
+              <button class="capability__head" type="button" aria-expanded="true">
+                <span class="capability__no">01</span>
+                <span class="capability__name">SENSE &amp; STRATEGY</span>
+                <span class="capability__toggle" aria-hidden="true"><i></i><i></i></span>
+              </button>
+              <div class="capability__body">
+                <div class="capability__inner">
+                  <p>Finding the human question behind the technical brief. I map systems, research behaviour and shape a product direction that teams can actually build against.</p>
+                  <div class="tags"><span>RESEARCH</span><span>SYSTEMS MAPPING</span><span>PRODUCT STRATEGY</span><span>WORKSHOPS</span></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="capability">
+              <button class="capability__head" type="button" aria-expanded="false">
+                <span class="capability__no">02</span>
+                <span class="capability__name">DESIGN &amp; PROTOTYPE</span>
+                <span class="capability__toggle" aria-hidden="true"><i></i><i></i></span>
+              </button>
+              <div class="capability__body">
+                <div class="capability__inner">
+                  <p>Interfaces for screens, spaces and moments in between. From Figma systems and motion studies to interactive 3D and high-fidelity prototypes people can touch.</p>
+                  <div class="tags"><span>SPATIAL UX</span><span>UI SYSTEMS</span><span>MOTION</span><span>3D / WEBGL</span></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="capability">
+              <button class="capability__head" type="button" aria-expanded="false">
+                <span class="capability__no">03</span>
+                <span class="capability__name">BUILD &amp; LAUNCH</span>
+                <span class="capability__toggle" aria-hidden="true"><i></i><i></i></span>
+              </button>
+              <div class="capability__body">
+                <div class="capability__inner">
+                  <p>I prototype in the browser and ship in the real world. Creative development, real-time data and performance-minded front-end, made in close collaboration with your engineers.</p>
+                  <div class="tags"><span>CREATIVE CODE</span><span>THREE.JS / GLSL</span><span>FRONT-END</span><span>ART DIRECTION</span></div>
+                </div>
+              </div>
+            </article>
+
+            <div class="capability-note">
+              <span class="status-dot"></span>
+              <p>Available for selected collaborations and advisory from <strong>January 2026</strong>.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="track-record reveal">
+          <div class="track-record__head">
+            <span>TRACK RECORD</span>
+            <span>2017 — NOW</span>
+          </div>
+          <div class="track-row">
+            <span class="track-row__years">2022—NOW</span>
+            <div class="track-row__role"><strong>Independent Creative Technologist</strong><span>Studio Chenchen Wang / Shanghai + everywhere</span></div>
+            <span class="track-row__field">SPATIAL · PRODUCT · CODE</span>
+          </div>
+          <div class="track-row">
+            <span class="track-row__years">2019—22</span>
+            <div class="track-row__role"><strong>Senior Experience Designer</strong><span>Halo Systems / Singapore</span></div>
+            <span class="track-row__field">SMART HOME · IOT</span>
+          </div>
+          <div class="track-row">
+            <span class="track-row__years">2017—19</span>
+            <div class="track-row__role"><strong>Interaction Designer</strong><span>Atelier Data / Shanghai</span></div>
+            <span class="track-row__field">DATA · CULTURE · DIGITAL</span>
+          </div>
+        </div>
+
+        <div class="recognition reveal">
+          <span class="recognition__label">SELECTED RECOGNITION / 2023—25</span>
+          <div class="recognition__list">
+            <span><b>AWWWARDS</b>SITE OF THE DAY ×2</span>
+            <span><b>FWA</b>SITE OF THE DAY</span>
+            <span><b>WEBBY</b>HONOREE</span>
+            <span><b>CORE77</b>INTERACTION FINALIST</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="contact-glow" aria-hidden="true"></div>
+      <div class="contact-grid-bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-head__index">04 — CONTACT</span>
+          <span class="section-head__rule"></span>
+          <span class="section-head__note">OPEN FOR GOOD TROUBLE</span>
+        </div>
+
+        <div class="contact-main">
+          <div class="contact-main__left">
+            <p class="contact-kicker reveal">HAVE A SYSTEM THAT NEEDS A SOUL?</p>
+            <h2 class="contact-title reveal" id="contact-title">
+              <span class="reveal-line"><span>LET’S BUILD</span></span>
+              <span class="reveal-line"><span><em>something</em></span></span>
+              <span class="reveal-line"><span>ALIVE<span class="contact-dot">.</span></span></span>
+            </h2>
+          </div>
+          <div class="contact-main__right reveal">
+            <p>I partner with founders, studios and forward-thinking teams on spatial interfaces, connected products and experiences that need to be felt to be believed.</p>
+            <p>Tell me what you’re making — or what’s keeping you up at night.</p>
+            <a class="email-link" href="mailto:hello@chenchenwang.studio">
+              <span>hello@chenchenwang.studio</span>
+              <svg class="icon"><use href="#i-arrow-ur"/></svg>
+            </a>
+            <button class="copy-email" type="button" data-copy="hello@chenchenwang.studio">
+              <svg class="icon"><use href="#i-copy"/></svg>
+              <span>COPY EMAIL</span>
+            </button>
+            <div class="contact-socials">
+              <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">INSTAGRAM <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+              <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LINKEDIN <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+              <a href="https://www.are.na/" target="_blank" rel="noreferrer">ARE.NA <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-strip reveal">
+          <div class="contact-strip__item">
+            <span>LOCAL TIME / GMT+8</span>
+            <strong id="contact-time">00:00:00</strong>
+          </div>
+          <div class="contact-strip__item">
+            <span>BASED IN</span>
+            <strong>Shanghai, CN</strong>
+          </div>
+          <div class="contact-strip__item">
+            <span>AVAILABILITY</span>
+            <strong class="contact-strip__open"><i></i>Q1 / 2026 — SELECT SLOTS</strong>
+          </div>
+          <a class="contact-strip__mail" href="mailto:hello@chenchenwang.studio" aria-label="Send an email">
+            <svg class="icon"><use href="#i-mail"/></svg>
+          </a>
+        </div>
+
+        <footer class="site-footer">
+          <span>© <span id="year">2026</span> CHENCHEN WANG. ALL RIGHTS RESERVED.</span>
+          <span class="site-footer__mid">DESIGNED &amp; BUILT WITH CURIOSITY / SHANGHAI</span>
+          <button type="button" class="back-top" id="back-top">BACK TO TOP <svg class="icon"><use href="#i-arrow-up"/></svg></button>
+        </footer>
+        <div class="footer-word" aria-hidden="true">CHENCHEN WANG</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PROJECT DIALOG -->
+  <dialog class="project-dialog" id="project-dialog" aria-labelledby="modal-title">
+    <div class="project-dialog__inner">
+      <button class="project-dialog__close" id="modal-close" type="button" aria-label="Close case study">
+        <svg class="icon"><use href="#i-close"/></svg>
+      </button>
+      <div class="project-dialog__media">
+        <img id="modal-image" src="assets/work-nexus.jpg" alt="" width="1400" height="875">
+        <span class="project-dialog__index" id="modal-index">CASE / 01</span>
+        <div class="project-dialog__scan" aria-hidden="true"></div>
+      </div>
+      <div class="project-dialog__content">
+        <div class="project-dialog__meta" id="modal-meta">SMART CITY / 2025</div>
+        <h2 id="modal-title">NEXUS</h2>
+        <p class="project-dialog__summary" id="modal-summary"></p>
+        <div class="project-dialog__grid">
+          <div>
+            <span class="project-dialog__label">THE CHALLENGE</span>
+            <p id="modal-challenge"></p>
+          </div>
+          <div>
+            <span class="project-dialog__label">MY ROLE</span>
+            <ul id="modal-role"></ul>
+          </div>
+        </div>
+        <div class="project-dialog__metrics" id="modal-metrics"></div>
+        <div class="project-dialog__foot">
+          <div class="tags" id="modal-tags"></div>
+          <a class="btn btn--primary" href="#contact" id="modal-cta"><span>DISCUSS A PROJECT</span><span class="btn__icon"><svg class="icon"><use href="#i-arrow-ur"/></svg></span></a>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">EMAIL COPIED TO CLIPBOARD</div>
+
+  <noscript>
+    <style>
+      .boot, .cursor, .cursor-dot { display: none !important; }
+      body.is-loading { overflow: auto !important; }
+      .reveal, .reveal-line > span { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
+  <script>
+    // Safety net: no loading screen should ever trap the page.
+    window.setTimeout(function () {
+      if (!document.body.classList.contains('is-loading')) return;
+      var boot = document.getElementById('boot');
+      if (boot) { boot.classList.add('is-hidden'); boot.style.display = 'none'; }
+      document.body.classList.remove('is-loading');
+      document.body.classList.add('is-ready');
+    }, 4600);
+  </script>
+</body>
+</html>
