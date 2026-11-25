@@ -348,53 +348,41 @@
      --------------------------------------------------------- */
 
   const projects = {
-    nexus: {
-      index: 'CASE / 01',
-      meta: 'SMART CITY / PRODUCT / 2025',
-      title: 'NEXUS',
+    crossculture: {
+      index: 'RESEARCH / 01',
+      meta: 'RESEARCH DIRECTION / CROSS-CULTURAL STUDIES',
+      title: '跨文化研究',
       image: 'assets/work-nexus.jpg',
-      alt: 'Aerial night view of a luminous net-zero district with data paths and a holographic layer above it.',
-      summary: 'A living operating system for a net-zero district. NEXUS turns the invisible metabolism of a city — energy, air, movement and occupancy — into one calm, legible interface for operators and residents alike.',
-      challenge: 'The district had more than 2,000 connected systems but no shared language. Operators were monitoring six dashboards, residents had no visibility, and sustainability targets were being reported against stale data. The challenge was to create a single product that could serve both groups without exposing anyone to a wall of telemetry.',
-      role: ['Product strategy & systems mapping', 'Spatial UX and interface system', 'Creative direction and 3D language', 'WebGL prototype and design engineering'],
-      metrics: [
-        ['-31%', 'DISTRICT ENERGY USE'],
-        ['2,184', 'LIVE NODES ORCHESTRATED'],
-        ['4.8/5', 'RESIDENT TRUST SCORE']
-      ],
-      tags: ['PRODUCT STRATEGY', 'SPATIAL UX', 'WEBGL', 'DATA VIZ']
+      alt: 'Aerial night view of a luminous district with data paths and a holographic layer above it.',
+      summary: 'Research on communication across cultures: how media texts, symbols and everyday practices are encoded in one cultural context and read in another.',
+      challenge: 'What gets lost, gained or reinvented when a story moves between cultures — and how can communicators design for that translation rather than against it?',
+      role: ['Intercultural communication theory', 'Cross-cultural media reception', 'Cultural identity in digital spaces', 'Comparative media studies'],
+      metrics: [],
+      tags: ['CROSS-CULTURAL', 'COMMUNICATION', 'MEDIA', 'IDENTITY']
     },
-    aura: {
-      index: 'CASE / 02',
-      meta: 'AMBIENT LIVING / PRODUCT / 2024',
-      title: 'AURA',
+    softpower: {
+      index: 'RESEARCH / 02',
+      meta: 'RESEARCH DIRECTION / CULTURAL SOFT POWER',
+      title: '文化软实力',
       image: 'assets/work-aura.jpg',
-      alt: 'A warm, minimalist smart living room with a brass climate panel and a soft holographic climate dial.',
-      summary: 'A home that reads the room. AURA composes light, air, sound and warmth as one continuous material, controlled by presence and habit instead of apps and notifications.',
-      challenge: 'A premium residential developer wanted “intelligence” without screens everywhere. We needed to design an ambient system that could learn a household’s rhythm and communicate through subtle changes in space rather than another interface asking for attention.',
-      role: ['Experience strategy', 'Ambient interaction model', 'Spatial & industrial UI design', 'On-device interaction prototyping'],
-      metrics: [
-        ['-68%', 'APP INTERACTIONS'],
-        ['21.4°', 'AVERAGE HOME TEMP'],
-        ['09', 'SENSORY SCENES']
-      ],
-      tags: ['AMBIENT COMPUTING', 'IOT', 'SPATIAL UX', 'IDENTITY']
+      alt: 'A warm, minimalist room with a brass panel and a soft holographic dial.',
+      summary: 'Research on cultural soft power: how cultural resources, heritage and contemporary media become sources of attraction, trust and influence.',
+      challenge: 'How can cultural heritage — including that of historic cities such as Kaifeng — be told in ways that resonate with international and younger audiences?',
+      role: ['Soft power theory', 'International communication', 'Heritage and city image', 'Digital storytelling of Chinese culture'],
+      metrics: [],
+      tags: ['SOFT POWER', 'NARRATIVE', 'HERITAGE', 'GLOBAL']
     },
-    kinetic: {
-      index: 'CASE / 03',
-      meta: 'MACHINE-NATIVE IDENTITY / 2023',
-      title: 'KINETIC',
+    festivals: {
+      index: 'RESEARCH / 03',
+      meta: 'RESEARCH DIRECTION / FILM FESTIVALS',
+      title: '电影节',
       image: 'assets/work-kinetic.jpg',
       alt: 'A dark brushed-metal robotic arm lit by a lime beam, reaching toward a chrome sphere.',
-      summary: 'An identity that moves like the machines it represents. A generative motion language and digital toolkit for a robotics studio building the next generation of collaborative industrial arms.',
-      challenge: 'Robotics branding often looks either like toys or military hardware. Kinetic needed an identity that communicated precision, empathy and motion at once — flexible enough to live on hardware, in a sales deck and in a fully generative web experience.',
-      role: ['Brand strategy & naming', 'Motion language direction', 'Generative identity system', 'Web experience design'],
-      metrics: [
-        ['12', 'MOTION STATES'],
-        ['3.2M', 'GENERATED FRAMES'],
-        ['01', 'SYSTEM, INFINITE OUTPUTS']
-      ],
-      tags: ['IDENTITY', 'MOTION SYSTEM', 'CREATIVE CODE', 'ART DIRECTION']
+      summary: 'Research on film festivals as sites of cultural exchange, industry networking and city image-building.',
+      challenge: 'How do film festivals shape which stories circulate globally, and what role do they play in the cultural image of their host cities?',
+      role: ['Festival studies', 'Film circulation and programming', 'Festivals and city image', 'Cross-cultural audiences'],
+      metrics: [],
+      tags: ['FILM FESTIVALS', 'CINEMA', 'CITY IMAGE', 'EXCHANGE']
     }
   };
 
@@ -426,9 +414,12 @@
       modalImage.alt = data.alt;
     }
     if (modalRole) modalRole.innerHTML = data.role.map((item) => `<li>${item}</li>`).join('');
-    if (modalMetrics) modalMetrics.innerHTML = data.metrics.map(([value, label]) => (
-      `<div class="project-dialog__metric"><b>${value}</b><span>${label}</span></div>`
-    )).join('');
+    if (modalMetrics) {
+      modalMetrics.innerHTML = data.metrics.map(([value, label]) => (
+        `<div class="project-dialog__metric"><b>${value}</b><span>${label}</span></div>`
+      )).join('');
+      modalMetrics.style.display = data.metrics.length ? '' : 'none';
+    }
     if (modalTags) modalTags.innerHTML = data.tags.map((tag) => `<span>${tag}</span>`).join('');
 
     body.classList.add('dialog-open');
