@@ -23,7 +23,14 @@
   <link rel="modulepreload" href="assets/vendor/three.module.js">
   <link rel="stylesheet" href="styles.css">
   <script type="module" src="world.js"></script>
+  <script defer src="language.js"></script>
   <script defer src="main.js"></script>
+  <style>
+    .header-actions { display:flex; align-items:center; justify-content:flex-end; gap:clamp(8px,1.1vw,20px); }
+    .language-toggle { appearance:none; color:inherit; background:transparent; border:1px solid currentColor; border-radius:4px; padding:6px 9px; white-space:nowrap; cursor:pointer; font:500 14px/1.25 system-ui,sans-serif; }
+    html:lang(zh) .display, html:lang(zh) .project-dialog__summary { overflow-wrap:anywhere; }
+    html:lang(zh) .display, html:lang(zh) .contact-title { letter-spacing:normal; }
+  </style>
 </head>
 <body class="is-loading">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -93,6 +100,7 @@
       <a href="#contact" data-nav="contact"><span class="nav-index">04</span><span>CONTACT</span></a>
     </nav>
 
+    <div class="header-actions">
     <div class="header-meta">
       <div class="header-clock">
         <span class="status-dot"></span>
@@ -105,10 +113,12 @@
       </a>
     </div>
 
+    <button class="language-toggle" type="button" id="language-toggle" lang="zh-CN" aria-label="切换到中文">中文</button>
     <button class="menu-toggle" id="menu-toggle" type="button" aria-controls="mobile-menu" aria-expanded="false">
       <span class="menu-toggle__label">MENU</span>
       <span class="menu-toggle__lines" aria-hidden="true"><i></i><i></i></span>
     </button>
+    </div>
   </header>
 
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
@@ -207,7 +217,6 @@
               <span class="title-mask"><span class="title-line title-line--outline">WANG</span></span>
             </h1>
             <div class="title-aside" aria-hidden="true">
-              <span class="title-aside__cn" lang="zh-CN">王忱忱</span>
               <span class="title-aside__reg">®</span>
               <span class="title-aside__role">CREATIVE<br>TECHNOLOGIST</span>
             </div>
@@ -342,7 +351,7 @@
                 <span class="portrait__hud portrait__hud--br"><i></i>IN FOCUS</span>
               </div>
               <figcaption>
-                <span>王忱忱 / CHENCHEN WANG</span>
+                <span>CHENCHEN WANG</span>
                 <span>SHANGHAI, CN — GMT+8</span>
               </figcaption>
             </figure>

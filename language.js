@@ -1,0 +1,292 @@
+// The English markup is the source of truth. Preserve its inline emphasis and links.
+const chineseCopy = {
+  "Chenchen Wang — Creative Technologist": "Chenchen Wang｜创意技术设计师",
+  "Skip to content": "跳至正文",
+  "CW / PORTFOLIO 2026": "CW / 作品集 2026",
+  "SPATIAL INTERFACE SYSTEM": "空间交互系统",
+  "BOOT SEQ. 07": "启动序列 07",
+  "INITIALISING HUMAN INTERFACE": "正在初始化交互界面",
+  "CONNECTING TO NEXUS": "正在连接 NEXUS",
+  "SHANGHAI / CN": "中国上海",
+  "VIEW": "查看",
+  "STUDIO / SHANGHAI": "上海工作室",
+  "ABOUT": "关于我",
+  "WORK": "作品",
+  "APPROACH": "工作方法",
+  "CONTACT": "联系",
+  "SHANGHAI": "上海",
+  "START A PROJECT": "洽谈项目",
+  "MENU": "菜单",
+  "INDEX / 2026": "目录 / 2026",
+  "SYS.ONLINE": "系统在线",
+  "RES": "分辨率",
+  "SYNC": "同步",
+  "CORE": "核心",
+  "PORTFOLIO / 2026": "作品集 / 2026",
+  "INDEPENDENT CREATIVE TECHNOLOGIST": "独立创意技术设计师",
+  "CREATIVE": "创意",
+  "TECHNOLOGIST": "技术设计师",
+  "I build": "我为新一代城市与家庭设计",
+  "spatial interfaces": "空间界面",
+  ", real-time systems, and quietly intelligent experiences for the next generation of cities and homes.": "，构建实时系统，让智能服务自然融入日常生活。",
+  "SPATIAL SYSTEMS": "空间系统",
+  "CREATIVE CODE": "创意编程",
+  "Q1 / 2026": "2026 年第一季度",
+  "EXPLORE SELECTED WORK": "浏览精选作品",
+  "LET'S TALK": "联系我",
+  "LIVE ENVIRONMENT": "实时环境",
+  "ACTIVE NODES": "活跃节点",
+  "SYNC QUALITY": "同步质量",
+  "RESPONSE": "响应时间",
+  "ENERGY DISTRIBUTION": "能源分布",
+  "SECTOR 07": "第 07 区",
+  "Smart Living in a Digital World": "数字世界里的智慧生活",
+  "SCROLL TO EXPLORE": "向下浏览",
+  "EST. 2017": "始于 2017 年",
+  "SPATIAL INTERFACES": "空间界面",
+  "REAL-TIME SYSTEMS": "实时系统",
+  "SMART LIVING": "智慧生活",
+  "01 — ABOUT": "01 — 关于我",
+  "HUMAN FIRST / SYSTEMS SECOND": "以人为本，系统为用",
+  "I design the": "我设计",
+  "invisible": "看不见的",
+  "systems that make": "系统，",
+  "life feel": "让生活",
+  "effortless.": "轻松自如。",
+  "I’m Chenchen Wang, a creative technologist working where design, code and the built environment meet. For eight years I’ve helped ambitious teams turn complex systems — cities, homes, energy, data — into experiences that feel natural to the people inside them.": "我是 Chenchen Wang，一名创意技术设计师，工作横跨设计、编程与建筑环境。过去八年，我与不同团队合作，把城市、住宅、能源和数据背后的复杂系统，转化为人们用起来自然顺手的体验。",
+  "My work moves from research and product strategy to interface design and the final line of production code. I believe the best technology is felt before it’s understood.": "我的工作从研究和产品策略开始，经过界面设计，一直延伸到最后一行上线代码。我相信，好的技术往往先被人感受到，才被人理解。",
+  "HOW I WORK": "了解我的工作方法",
+  "IN THE STUDIO / CW—01": "工作室现场 / CW—01",
+  "IN FOCUS": "现场特写",
+  "SHANGHAI, CN — GMT+8": "中国上海 · 东八区",
+  "Years shaping digital experiences": "年数字体验设计经验",
+  "Products shipped across 9 countries": "款产品，落地九个国家",
+  "Industry awards & honorees": "项行业奖项与荣誉",
+  "Obsession: making tech feel human": "个追求：让技术更有人情味",
+  "02 — SELECTED WORK": "02 — 精选作品",
+  "2023 → 2026 / SELECTED CASES": "2023 至 2026 / 案例精选",
+  "A few things": "从想法",
+  "I’ve": "到",
+  "made real.": "作品。",
+  "Selected collaborations across smart cities, ambient living and machine-native brands. Every project starts with a human question — never a technology looking for a problem.": "这些合作涵盖智慧城市、智能家居与机器人品牌设计。每个项目都从一个具体问题开始：使用它的人究竟需要什么？",
+  "[ 03 CASE STUDIES / 2023—25 ]": "[ 三个案例 / 2023—2025 ]",
+  "NEXUS / LIVE DISTRICT": "NEXUS / 实时街区",
+  "CASE": "案例",
+  "01 / SMART CITY": "01 / 智慧城市",
+  "An operating system for the net-zero district — turning invisible flows of energy, air and movement into one calm, legible interface.": "为净零碳街区设计的操作系统，把能源、空气和人流的变化汇集在一个清晰直观的界面中。",
+  "PRODUCT": "产品",
+  "SPATIAL UX": "空间体验",
+  "AURA / RESIDENCE 04": "AURA / 住宅 04",
+  "CLIMATE 21.4°C  AQI 12": "室温 21.4°C　空气质量指数 12",
+  "02 / AMBIENT LIVING": "02 / 智能家居",
+  "A home that reads the room. Light, air and sound composed as a single living material — controlled by presence, not apps.": "能感知人在何处的家。灯光、空气和声音随人的活动自然调整，无需打开应用。",
+  "IOT": "物联网",
+  "BRAND": "品牌",
+  "KINETIC / MOTION SYSTEM": "KINETIC / 动态系统",
+  "SERVO 06  TORQUE 84%": "伺服 06　扭矩 84%",
+  "03 / MACHINE-NATIVE IDENTITY": "03 / 机器人品牌识别",
+  "An identity that moves like the machines it represents. A generative motion language for a new robotics studio.": "让品牌像机器一样运动。为一家新兴机器人工作室设计的生成式动态视觉语言。",
+  "IDENTITY": "视觉识别",
+  "MOTION": "动态设计",
+  "DIGITAL": "数字设计",
+  "NEXT / 04": "下一个 / 04",
+  "Have something": "你有什么",
+  "strange": "不寻常的",
+  "in mind?": "想法？",
+  "THERE’S ROOM FOR ONE MORE": "今年还有时间，",
+  "GOOD IDEA THIS YEAR.": "一起实现一个好点子。",
+  "03 — APPROACH": "03 — 工作方法",
+  "FROM FIRST PRINCIPLE TO FINAL PIXEL": "从基本原理到最后一个像素",
+  "Strategy in the head.": "从策略出发，",
+  "Code": "用代码",
+  "in the hands.": "实现。",
+  "I work as an embedded partner, not a hand-off machine. That means asking better questions, making the thing, testing it with real people, and staying until it feels inevitable.": "我会加入团队一起工作，从厘清问题、做出原型，到邀请真实用户测试，反复调整，直到产品用起来自然顺手。",
+  "SIGNAL MAP / CAPABILITIES": "能力分布图",
+  "LIVE": "实时",
+  "RESEARCH": "研究",
+  "SPATIAL": "空间",
+  "BUILD": "开发",
+  "N 31.23° / E 121.47°": "北纬 31.23° / 东经 121.47°",
+  "SYNC 100%": "同步 100%",
+  "SENSE & STRATEGY": "洞察与策略",
+  "Finding the human question behind the technical brief. I map systems, research behaviour and shape a product direction that teams can actually build against.": "我从技术需求中寻找人的实际问题，梳理系统、研究使用行为，与团队一起确定能够落地的产品方向。",
+  "SYSTEMS MAPPING": "系统梳理",
+  "PRODUCT STRATEGY": "产品策略",
+  "WORKSHOPS": "工作坊",
+  "DESIGN & PROTOTYPE": "设计与原型",
+  "Interfaces for screens, spaces and moments in between. From Figma systems and motion studies to interactive 3D and high-fidelity prototypes people can touch.": "为屏幕和实体空间设计交互。从 Figma 设计系统、动效研究，到可以亲手体验的交互式三维模型和高保真原型。",
+  "UI SYSTEMS": "界面系统",
+  "BUILD & LAUNCH": "开发与上线",
+  "I prototype in the browser and ship in the real world. Creative development, real-time data and performance-minded front-end, made in close collaboration with your engineers.": "我在浏览器中验证原型，再与工程团队一起把产品带到真实场景中，重点关注创意开发、实时数据与前端性能。",
+  "FRONT-END": "前端开发",
+  "ART DIRECTION": "艺术指导",
+  "Available for selected collaborations and advisory from": "可承接项目合作与咨询，开始时间为",
+  "January 2026": "2026 年 1 月",
+  "TRACK RECORD": "工作经历",
+  "2017 — NOW": "2017 年至今",
+  "2022—NOW": "2022 年至今",
+  "Independent Creative Technologist": "独立创意技术设计师",
+  "Studio Chenchen Wang / Shanghai + everywhere": "Chenchen Wang 工作室 / 上海及远程",
+  "SPATIAL · PRODUCT · CODE": "空间设计 · 产品 · 编程",
+  "Senior Experience Designer": "高级体验设计师",
+  "Halo Systems / Singapore": "Halo Systems / 新加坡",
+  "SMART HOME · IOT": "智能家居 · 物联网",
+  "Interaction Designer": "交互设计师",
+  "Atelier Data / Shanghai": "Atelier Data / 上海",
+  "DATA · CULTURE · DIGITAL": "数据 · 文化 · 数字设计",
+  "SELECTED RECOGNITION / 2023—25": "部分荣誉 / 2023—2025",
+  "SITE OF THE DAY ×2": "两次获评每日最佳网站",
+  "SITE OF THE DAY": "每日最佳网站",
+  "HONOREE": "荣誉奖",
+  "INTERACTION FINALIST": "交互设计入围",
+  "04 — CONTACT": "04 — 联系",
+  "OPEN FOR GOOD TROUBLE": "欢迎有挑战的合作",
+  "HAVE A SYSTEM THAT NEEDS A SOUL?": "想让你的系统更有温度？",
+  "LET’S BUILD": "一起创造",
+  "something": "鲜活的",
+  "ALIVE": "体验",
+  "I partner with founders, studios and forward-thinking teams on spatial interfaces, connected products and experiences that need to be felt to be believed.": "我与创业者、工作室和产品团队合作，设计空间界面、互联产品，以及值得亲身体验的交互。",
+  "Tell me what you’re making — or what’s keeping you up at night.": "聊聊你正在做的事，或者那个让你夜里还在想的问题。",
+  "COPY EMAIL": "复制邮箱",
+  "LOCAL TIME / GMT+8": "当地时间 / 东八区",
+  "BASED IN": "所在地",
+  "Shanghai, CN": "中国上海",
+  "AVAILABILITY": "合作档期",
+  "Q1 / 2026 — SELECT SLOTS": "2026 年第一季度 · 部分时段可约",
+  "CHENCHEN WANG. ALL RIGHTS RESERVED.": "CHENCHEN WANG 版权所有。",
+  "DESIGNED & BUILT WITH CURIOSITY / SHANGHAI": "怀着好奇心设计与开发于上海",
+  "BACK TO TOP": "返回顶部",
+  "CASE / 01": "案例 / 01",
+  "SMART CITY / 2025": "智慧城市 / 2025",
+  "THE CHALLENGE": "项目挑战",
+  "MY ROLE": "我的职责",
+  "DISCUSS A PROJECT": "洽谈项目",
+  "EMAIL COPIED TO CLIPBOARD": "已复制邮箱地址",
+  "SMART CITY / PRODUCT / 2025": "智慧城市 / 产品 / 2025",
+  "Aerial night view of a luminous net-zero district with data paths and a holographic layer above it.": "净零碳街区夜景，街道上方叠加数据流与全息图层。",
+  "A living operating system for a net-zero district. NEXUS turns the invisible metabolism of a city — energy, air, movement and occupancy — into one calm, legible interface for operators and residents alike.": "NEXUS 是为净零碳街区设计的实时操作系统。运营人员和居民可以在同一界面了解能源使用、空气状况、人流以及空间使用情况。",
+  "The district had more than 2,000 connected systems but no shared language. Operators were monitoring six dashboards, residents had no visibility, and sustainability targets were being reported against stale data. The challenge was to create a single product that could serve both groups without exposing anyone to a wall of telemetry.": "街区有两千多个互联系统，却缺少统一的数据语言。运营人员要同时查看六个面板，居民看不到运行情况，可持续发展报告也依赖过时的数据。我们需要让两类用户都能从同一款产品中找到所需信息。",
+  "Product strategy & systems mapping": "产品策略与系统梳理",
+  "Spatial UX and interface system": "空间体验与界面系统",
+  "Creative direction and 3D language": "创意指导与三维视觉语言",
+  "WebGL prototype and design engineering": "WebGL 原型与设计工程",
+  "DISTRICT ENERGY USE": "街区能耗",
+  "LIVE NODES ORCHESTRATED": "实时协调节点",
+  "RESIDENT TRUST SCORE": "居民信任评分",
+  "CASE / 02": "案例 / 02",
+  "AMBIENT LIVING / PRODUCT / 2024": "智能家居 / 产品 / 2024",
+  "A warm, minimalist smart living room with a brass climate panel and a soft holographic climate dial.": "暖色智能客厅配有黄铜温控面板与全息刻度盘。",
+  "A home that reads the room. AURA composes light, air, sound and warmth as one continuous material, controlled by presence and habit instead of apps and notifications.": "AURA 把灯光、空气、声音和温度作为一个整体来设计。家会根据人的位置和习惯作出调整，减少应用操作与消息提醒。",
+  "A premium residential developer wanted “intelligence” without screens everywhere. We needed to design an ambient system that could learn a household’s rhythm and communicate through subtle changes in space rather than another interface asking for attention.": "客户希望住宅具备智能感知能力，又不希望屏幕遍布家中。我们的挑战是让系统学会一家人的生活节奏，通过空间里的细微变化与人交流。",
+  "Experience strategy": "体验策略",
+  "Ambient interaction model": "环境交互模型",
+  "Spatial & industrial UI design": "空间与工业界面设计",
+  "On-device interaction prototyping": "设备端交互原型",
+  "APP INTERACTIONS": "应用操作次数",
+  "AVERAGE HOME TEMP": "平均室温",
+  "SENSORY SCENES": "感官场景",
+  "CASE / 03": "案例 / 03",
+  "MACHINE-NATIVE IDENTITY / 2023": "机器人品牌识别 / 2023",
+  "A dark brushed-metal robotic arm lit by a lime beam, reaching toward a chrome sphere.": "黄绿色光束照亮金属机械臂，机械臂正伸向一个镀铬球体。",
+  "An identity that moves like the machines it represents. A generative motion language and digital toolkit for a robotics studio building the next generation of collaborative industrial arms.": "我们为研发下一代协作机械臂的工作室设计了一套生成式动态语言与数字工具，让品牌像它所代表的机器一样运动。",
+  "Robotics branding often looks either like toys or military hardware. Kinetic needed an identity that communicated precision, empathy and motion at once — flexible enough to live on hardware, in a sales deck and in a fully generative web experience.": "机器人品牌常让人联想到玩具或军事装备。KINETIC 希望同时传达精密、人情味与动感，还要能把同一套设计用于硬件、销售演示和实时生成的网页。",
+  "Brand strategy & naming": "品牌策略与命名",
+  "Motion language direction": "动态视觉指导",
+  "Generative identity system": "生成式识别系统",
+  "Web experience design": "网站体验设计",
+  "MOTION STATES": "运动状态",
+  "GENERATED FRAMES": "生成画面总帧数",
+  "SYSTEM, INFINITE OUTPUTS": "套系统，无限种输出",
+  "CLOSE": "关闭",
+  "GO": "前往",
+  "SOUND ON": "声音已开启",
+  "SOUND OFF": "声音已关闭",
+  "EMAIL": "邮箱",
+  "COPIED — TALK SOON": "已复制，期待联系",
+  "COPY FAILED — PLEASE SELECT THE EMAIL ABOVE": "复制失败，请选中上方邮箱",
+  "AUDIO UNAVAILABLE IN THIS BROWSER": "此浏览器不支持音频",
+  "DATA VIZ": "数据可视化",
+  "AMBIENT COMPUTING": "环境计算",
+  "MOTION SYSTEM": "动态系统",
+  "Primary navigation": "主导航",
+  "Mobile navigation": "移动端导航",
+  "System status": "系统状态",
+  "Social links and sound": "社交链接与声音",
+  "Toggle ambient sound": "切换环境音",
+  "Turn ambient sound off": "关闭环境音",
+  "Turn ambient sound on": "开启环境音",
+  "Email Chenchen Wang": "给 Chenchen Wang 发邮件",
+  "Live city telemetry": "城市实时数据",
+  "Send an email": "发送邮件",
+  "Close case study": "关闭案例",
+  "Chenchen Wang — back to top": "Chenchen Wang · 返回顶部",
+  "View NEXUS case study": "查看 NEXUS 案例",
+  "View AURA case study": "查看 AURA 案例",
+  "View KINETIC case study": "查看 KINETIC 案例",
+  "Hands arranging a glowing translucent architectural model in a dark studio.": "工作室内，一双手正在摆放发光的建筑模型。",
+  "Aerial night view of a smart district with cyan data paths and a holographic interface above the city.": "净零碳街区夜景，街道上方叠加数据流与全息图层。",
+  "Warm minimalist smart living room with a brass climate panel and a glowing holographic dial.": "暖色智能客厅配有黄铜温控面板与全息刻度盘。",
+  "Dark industrial robotic arm with lime and amber lighting reaching toward a chrome sphere.": "黄绿色光束照亮金属机械臂，机械臂正伸向一个镀铬球体。",
+  "Chenchen Wang — independent creative technologist designing spatial interfaces, real-time systems and quietly intelligent experiences for cities and homes.": "Chenchen Wang 的个人作品集，展示面向城市与住宅的空间界面、实时系统与智能交互设计。",
+  "Smart living in a digital world. Spatial interfaces, real-time systems and experiences for the next generation of cities and homes.": "Chenchen Wang 的个人作品集，展示面向城市与住宅的空间界面、实时系统与智能交互设计。",
+  "Smart living in a digital world. Spatial interfaces, real-time systems and experiences for cities and homes.": "Chenchen Wang 的个人作品集，展示面向城市与住宅的空间界面、实时系统与智能交互设计。"
+};
+
+(() => {
+  const toggle = document.getElementById('language-toggle');
+  let chinese = false;
+  try { chinese = localStorage.getItem('portfolio-language') === 'zh'; } catch {}
+  const originals = new WeakMap();
+  const attributes = ['aria-label', 'alt', 'data-tooltip', 'content'];
+
+  function translate(node, attribute) {
+    const value = attribute ? node.getAttribute(attribute) : node.nodeValue;
+    if (!value) return;
+    const key = attribute || 'text';
+    let saved = originals.get(node);
+    const previous = saved?.get(key);
+    const source = previous && value === previous.translated ? previous.source : value;
+    const word = source.trim();
+    if (!Object.hasOwn(chineseCopy, word)) return;
+    const translated = source.replace(word, () => chineseCopy[word]);
+    const output = chinese ? translated : source;
+    if (value === output) return;
+    if (!saved) originals.set(node, saved = new Map());
+    saved.set(key, { source, translated });
+    if (attribute) node.setAttribute(attribute, output);
+    else node.nodeValue = output;
+  }
+
+  function visit(node) {
+    if (node.nodeType === Node.TEXT_NODE) { translate(node); return; }
+    if (node.nodeType !== Node.ELEMENT_NODE || node === toggle || node.matches('script,style,noscript')) return;
+    for (const attribute of attributes) if (node.hasAttribute(attribute)) translate(node, attribute);
+    node.childNodes.forEach(visit);
+  }
+
+  function render() {
+    document.documentElement.lang = chinese ? 'zh-CN' : 'en';
+    toggle.textContent = chinese ? 'EN' : '中文';
+    toggle.lang = chinese ? 'en' : 'zh-CN';
+    toggle.setAttribute('aria-label', chinese ? 'Switch to English' : '切换到中文');
+    visit(document.documentElement);
+  }
+
+  toggle.addEventListener('click', () => {
+    chinese = !chinese;
+    try { localStorage.setItem('portfolio-language', chinese ? 'zh' : 'en'); } catch {}
+    render();
+  });
+  render();
+
+  // Menu, case studies, tooltips and copy feedback are populated after first paint.
+  new MutationObserver(records => {
+    if (!chinese) return;
+    for (const record of records) {
+      if (record.target === toggle) continue;
+      if (record.type === 'attributes') translate(record.target, record.attributeName);
+      else if (record.type === 'characterData') translate(record.target);
+      else record.addedNodes.forEach(visit);
+    }
+  }).observe(document.body, { subtree:true, childList:true, characterData:true, attributes:true, attributeFilter:attributes });
+})();
