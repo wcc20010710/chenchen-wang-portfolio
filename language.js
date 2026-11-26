@@ -299,7 +299,30 @@ const chineseCopy = {
   "Festival studies": "电影节研究",
   "Film circulation and programming": "影片流通与选片策展",
   "Festivals and city image": "电影节与城市形象",
-  "Cross-cultural audiences": "跨文化受众"
+  "Cross-cultural audiences": "跨文化受众",
+  "MORE": "详情",
+  "Close research direction": "关闭研究方向",
+  "I partner with founders, studios and forward-thinking teams on Kaifeng’s cyberspace interface, connected products and experiences that need to be felt to be believed.": "我与创业者、工作室和产品团队合作，构建开封的赛博空间界面、互联产品，以及值得亲身体验的交互。",
+  "2025 — NOW": "2025 年至今",
+  "2025—NOW": "2025 年至今",
+  "Counselor": "辅导员",
+  "School of Communication, Henan Kaifeng College of Science Technology and Communication / Kaifeng": "河南开封科技传媒学院传播学院 / 开封",
+  "STUDENT AFFAIRS · EDUCATION": "学生工作 · 教育",
+  "Chenchen Wang — Counselor & Researcher": "Chenchen Wang｜辅导员 · 研究者",
+  "Chenchen Wang — counselor at the School of Communication, Henan Kaifeng College of Science Technology and Communication, building Kaifeng's cyberspace interface. Research: cross-cultural studies, cultural soft power and film festivals.": "Chenchen Wang，河南开封科技传媒学院传播学院辅导员，构建开封的赛博空间界面。研究方向：跨文化研究、文化软实力与电影节。",
+  "KAIFENG / CN": "中国开封",
+  "KAIFENG / HENAN": "河南开封",
+  "KAIFENG": "开封",
+  "COUNSELOR · COMMUNICATION RESEARCHER": "辅导员 · 传播学研究者",
+  "COUNSELOR": "辅导员",
+  "& RESEARCHER": "· 研究者",
+  "SINCE 2025": "始于 2025 年",
+  "I’m Chenchen Wang, a counselor at the School of Communication, Henan Kaifeng College of Science Technology and Communication. Since 2025 I’ve worked alongside students every day, while researching how culture, media and cities carry meaning across borders — with Kaifeng as my starting point.": "我是 Chenchen Wang，河南开封科技传媒学院传播学院辅导员。2025 年起，我每天与学生并肩成长，同时研究文化、媒介与城市如何跨越边界传递意义——以开封为起点。",
+  "KAIFENG, CN — GMT+8": "中国开封 · 东八区",
+  "Years as a student counselor": "年辅导员工作经历",
+  "N 34.80° / E 114.31°": "北纬 34.80° / 东经 114.31°",
+  "Kaifeng, CN": "中国开封",
+  "DESIGNED & BUILT WITH CURIOSITY / KAIFENG": "怀着好奇心设计与开发于开封"
 };
 
 (() => {

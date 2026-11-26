@@ -326,7 +326,7 @@ function makeCircuitTexture() {
   ctx.fillStyle = 'rgba(255, 165, 104, 0.95)';
   ctx.fillText('ENERGY 80%', size - 58, size - 88);
   ctx.fillStyle = 'rgba(242, 239, 231, 0.46)';
-  ctx.fillText('LAT 31.2304 / LON 121.4737', size - 58, size - 64);
+  ctx.fillText('LAT 34.7986 / LON 114.3074', size - 58, size - 64);
 
   // horizontal strip readouts
   ctx.textAlign = 'left';
@@ -463,7 +463,7 @@ function makePlazaTexture() {
   ctx.fillStyle = 'rgba(242, 239, 231, 0.3)';
   ctx.font = '400 12px "JetBrains Mono", Consolas, monospace';
   ctx.letterSpacing = '4px';
-  ctx.fillText('31.2304 N  /  121.4737 E', cx, cy + 182);
+  ctx.fillText('34.7986 N  /  114.3074 E', cx, cy + 182);
 
   // cardinal crosses
   ['N', 'E', 'S', 'W'].forEach((label, i) => {
@@ -527,7 +527,7 @@ function makeTextTexture({ kicker, title, accent = '#5de0e8' }) {
   ctx.fillStyle = 'rgba(242, 239, 231, 0.35)';
   ctx.font = '300 11px "JetBrains Mono", Consolas, monospace';
   ctx.letterSpacing = '2px';
-  ctx.fillText('REALTIME / 31.2304 N', 24, 124);
+  ctx.fillText('REALTIME / 34.7986 N', 24, 124);
 
   const texture = new THREE.CanvasTexture(c);
   texture.colorSpace = THREE.SRGBColorSpace;
